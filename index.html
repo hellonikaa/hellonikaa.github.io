@@ -735,6 +735,22 @@ body.mats footer { display: none; }
 }
 </style>
 
+<style>
+/* Мобильная версия: воздух между блоками и фото «Обо мне» маленькой карточкой (бенто) */
+@media (max-width: 900px) {
+  .svc { margin-top: 72px; }
+  .about, .products, .process, .love, .faq, .marq { margin-top: 72px; }
+  .svc-grid, .about-grid, .about-more { gap: 16px; }
+  .about-more { margin-top: 16px; }
+  .cases { gap: 16px; }
+  /* «Обо мне» и фото в одном ряду, «Сначала процесс / Потом система» — полосой под ними */
+  .about-grid { grid-template-columns: minmax(0, 1fr) 40%; align-items: stretch; }
+  .about-left { display: contents; }
+  .about-left .card-label { grid-column: 1; grid-row: 1; }
+  .about-art { grid-column: 2; grid-row: 1; aspect-ratio: 1; align-self: start; }
+  .split { grid-column: 1 / -1; grid-row: 2; }
+}
+</style>
 <div class="intro" id="intro" aria-hidden="true">
   <div class="gridlines" id="gl"></div>
   <div class="hi" id="hi"></div>
