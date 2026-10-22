@@ -744,10 +744,10 @@ body.mats footer { display: none; }
   .about-more { margin-top: 16px; }
   .cases { gap: 16px; }
   /* «Обо мне» и фото в одном ряду, «Сначала процесс / Потом система» — полосой под ними */
-  .about-grid { grid-template-columns: minmax(0, 1fr) 40%; align-items: stretch; }
+  .about-grid { grid-template-columns: minmax(0, 1fr) min(40%, 200px); align-items: stretch; }
   .about-left { display: contents; }
   .about-left .card-label { grid-column: 1; grid-row: 1; }
-  .about-art { grid-column: 2; grid-row: 1; aspect-ratio: auto; align-self: stretch; min-height: 140px; }
+  .about-art { grid-column: 2; grid-row: 1; aspect-ratio: 3 / 4; align-self: start; }
   .split { grid-column: 1 / -1; grid-row: 2; }
 }
 </style>
