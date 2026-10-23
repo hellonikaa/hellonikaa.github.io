@@ -35,6 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
+body.hero-on::before { background: var(--blue); }
 a { color: inherit; }
 button { font: inherit; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -125,7 +126,7 @@ li, dd, label span { text-wrap: pretty; }
    white card ≈ 26cqw square, claim rows ≈ 6cqw tall with ~1cqw type */
 .hero {
   container-type: inline-size;
-  margin-top: -78px; background: var(--blue); color: #fff; border-radius: 6px; overflow: hidden; position: relative;
+  margin-top: -78px; background: var(--blue); color: #fff; border-radius: 0; margin-inline: calc(-1 * max(14px, env(safe-area-inset-left, 0px))); overflow: hidden; position: relative;
   background-image:
     linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px),
     linear-gradient(0deg, rgba(255,255,255,0.12) 1px, transparent 1px);
@@ -1422,6 +1423,11 @@ function revealClaims() {
 }
 function revealHero() {
   revealClaims();
+  {
+    const hero = document.querySelector(".hero");
+    const tint = () => document.body.classList.toggle("hero-on", !!hero && hero.getBoundingClientRect().bottom > 0 && !document.body.classList.contains("mats"));
+    addEventListener("scroll", tint, { passive: true }); tint();
+  }
   const h1 = document.querySelector(".hero h1");
   if (!h1 || reduce) return;
   [...h1.children].forEach((line, i) => line.animate(
