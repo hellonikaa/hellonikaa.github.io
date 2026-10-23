@@ -422,11 +422,11 @@ li, dd, label span { text-wrap: pretty; }
 @media (max-width: 900px) {
   .process { margin-top: 72px; height: calc(100svh + 3 * 75svh); }
   .p-card { left: 14px; right: 14px; width: auto; top: 76px; }
-  .p-top { grid-template-columns: 27% 1fr auto; }
+  .p-top { grid-template-columns: 34% 1fr auto; }
   .p-top .lbl { padding: 0 12px; }
   .p-ico { padding: 0 8px; gap: 4px; }
   .p-ico i { width: 24px; height: 24px; }
-  .p-mid { grid-template-columns: 27% 1fr; height: 108px; }
+  .p-mid { grid-template-columns: 34% 1fr; height: 108px; }
   .p-num .p-roll > div, .p-ttl .p-roll > div { height: 108px; }
   .p-num .p-roll > div { font-size: min(84px, 19vw); }
   .p-ttl .p-roll > div { padding: 16px 14px 0; }
@@ -566,7 +566,7 @@ footer { margin: 8px 0; padding-inline: 8px; --fd: #222225; --fl: #d9d9de; }
 .f-grid { display: grid; grid-template-columns: 22.5vw minmax(0, 1fr); grid-template-rows: auto auto; gap: 8px; }
 .f-panel { background: var(--fd); color: #fff; border-radius: 8px; }
 .f-brand { grid-row: span 2; padding: 2.6vw 2.6vw 2.8vw; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
-.f-logo { width: 92%; height: auto; display: block; }
+.f-logo { width: 92%; height: auto; display: block; margin-left: -4.82%; }
 .f-h { font-family: var(--hero); font-weight: 800; text-transform: uppercase; font-size: max(15px, 1vw); letter-spacing: .02em; color: #fff; margin: 0 0 1.1vw; }
 .f-panel a { color: var(--fl); text-decoration: none; transition: color .2s; }
 .f-panel a:hover { color: #fff; }
@@ -600,7 +600,7 @@ footer { margin: 8px 0; padding-inline: 8px; --fd: #222225; --fl: #d9d9de; }
   footer { padding-inline: 6px; }
   .f-grid { grid-template-columns: minmax(0, 1fr); }
   .f-brand { grid-row: auto; padding: 26px 20px; gap: 28px; }
-  .f-logo { width: 190px; }
+  .f-logo { width: 190px; margin-left: -10px; }
   .f-h { margin-bottom: 12px; }
   .f-links { gap: 8px; }
   .f-sub { padding: 22px 20px; }
@@ -752,6 +752,9 @@ body.mats footer { display: none; }
   .about-left .card-label { grid-column: 1; grid-row: 1; }
   .about-art { grid-column: 2; grid-row: 1; aspect-ratio: 3 / 4; align-self: start; }
   .split { grid-column: 1 / -1; grid-row: 2; }
+  .brand { margin-left: 0; }
+  .navbox { margin-right: 0; }
+  #products .sec-title h2 { width: min-content; }
 }
 </style>
 <div class="intro" id="intro" aria-hidden="true">
