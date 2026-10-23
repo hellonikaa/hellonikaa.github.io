@@ -36,6 +36,7 @@ body {
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
 body.hero-on::before { background: var(--blue); }
+.m-br { display: none; }
 a { color: inherit; }
 button { font: inherit; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -755,7 +756,7 @@ body.mats footer { display: none; }
   .split { grid-column: 1 / -1; grid-row: 2; }
   .brand { margin-left: 0; }
   .navbox { margin-right: 0; }
-  #products .sec-title h2 { width: min-content; }
+  .m-br { display: inline; }
 }
 </style>
 <div class="intro" id="intro" aria-hidden="true">
@@ -864,7 +865,7 @@ body.mats footer { display: none; }
 
     <!-- cases -->
     <section class="products" id="products">
-      <div class="sec-title"><h2>Мои стартапы</h2><div class="mark" style="background-color:#fff"><b>03</b></div></div>
+      <div class="sec-title"><h2>Мои <br class="m-br">стартапы</h2><div class="mark" style="background-color:#fff"><b>03</b></div></div>
       <div class="cases">
         <a class="case" href="avtopilot/" target="_blank" rel="noopener" aria-label="Автопилот — открыть лендинг">
           <span class="dot"></span>
