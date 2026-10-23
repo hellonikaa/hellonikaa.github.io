@@ -1423,16 +1423,17 @@ function revealClaims() {
 }
 function revealHero() {
   revealClaims();
-  {
-    const hero = document.querySelector(".hero");
-    const tint = () => document.body.classList.toggle("hero-on", !!hero && hero.getBoundingClientRect().bottom > 0 && !document.body.classList.contains("mats"));
-    addEventListener("scroll", tint, { passive: true }); tint();
-  }
   const h1 = document.querySelector(".hero h1");
   if (!h1 || reduce) return;
   [...h1.children].forEach((line, i) => line.animate(
     [{ transform: "translateY(60%)", opacity: 0, clipPath: "inset(0 0 100% 0)" }, { transform: "none", opacity: 1, clipPath: "inset(0 0 0 0)" }],
     { duration: 900, delay: i * 120, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" }));
+}
+
+{
+  const hero = document.querySelector(".hero");
+  const tint = () => document.body.classList.toggle("hero-on", !!hero && hero.getBoundingClientRect().bottom > 0);
+  addEventListener("scroll", tint, { passive: true }); tint();
 }
 
 /* fit hero headline: widest line = 84% of the hero */
