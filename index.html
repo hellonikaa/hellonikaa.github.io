@@ -978,8 +978,7 @@ body.mats footer { display: none; }
     <div class="goods-right">
       <div class="goods-list" id="g-list">
         <a class="good" href="#m-plugins"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg></span><span class="gt"><b>5 плагинов для Claude Code</b><span>Дизайн без шаблонов, свежая документация и проверка безопасности</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        <a class="good" href="#m-skills"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><span class="gt"><b>5 скиллов для Claude</b><span>Редактор, дизайнер, маркетолог, аналитик и офис-менеджер в одном Claude</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        <a class="good" href="#m-prompts"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span><span class="gt"><b>10 промптов для сайтов и ботов</b><span>Копируете, меняете пару слов и получаете готовый результат</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="good" href="#m-skills"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><span class="gt"><b>11 скиллов для Claude</b><span>Дизайн без шаблонов, анимации, картинки, тексты и аналитика в одном Claude</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-check"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9l2 2 4-4M8 16h8"/></svg></span><span class="gt"><b>Чек-лист: проверь свой сайт</b><span>16 пунктов, чтобы база клиентов не утекла</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-install"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span><span class="gt"><b>Как установить плагины и скиллы</b><span>Две команды в Claude Code и пара минут</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
@@ -1004,6 +1003,14 @@ body.mats footer { display: none; }
             <div class="cmd"><code>/plugin install имя@магазин</code><button class="copy">Копировать</button></div>
           </div>
         </div>
+        <div class="frame item">
+          <div class="label"><span>Скиллы через терминал</span><i>1 шаг</i></div>
+          <div class="in">
+            <h3>Команда npx</h3>
+            <p>Для скиллов с командой npx: откройте Терминал в папке проекта и вставьте команду. Нужен установленный Node.js.</p>
+            <div class="cmd"><code>npx skills add автор/репозиторий</code><button class="copy">Копировать</button></div>
+          </div>
+        </div>
       </div>
       <div class="frame note-box"><h3>Как проверить</h3><p>Введите <b>/plugin</b> и откройте вкладку Installed. Если Claude попросит, выполните <b>/reload-plugins</b>.</p></div>
     </section>
@@ -1024,19 +1031,13 @@ body.mats footer { display: none; }
     </section>
 
     <section class="m-sec" id="m-skills">
-      <div class="sec-title"><h2>5 скиллов</h2><div class="mark" style="background-color:#fff"><b>03</b></div></div>
-      <div class="frame m-intro">Скилл — набор инструкций, который Claude подключает, когда задача его требует. С ними Claude работает как редактор, дизайнер, маркетолог, аналитик и офис-менеджер.</div>
+      <div class="sec-title"><h2>11 скиллов</h2><div class="mark" style="background-color:#fff"><b>03</b></div></div>
+      <div class="frame m-intro">Скилл — набор инструкций, который Claude подключает, когда задача его требует. С ними Claude работает как редактор, дизайнер, маркетолог, аналитик, аниматор и офис-менеджер.</div>
       <div class="m-grid" id="skills"></div>
     </section>
 
-    <section class="m-sec" id="m-prompts">
-      <div class="sec-title"><h2>10 промптов</h2><div class="mark" style="background-color:#fff"><b>04</b></div></div>
-      <div class="frame m-intro">Замените выделенные слова на свои, скопируйте и отправьте в Claude.</div>
-      <div class="m-grid" id="prompts"></div>
-    </section>
-
     <section class="m-sec" id="m-check">
-      <div class="sec-title"><h2>Проверь свой сайт</h2><div class="mark" style="background-color:#fff"><b>05</b></div></div>
+      <div class="sec-title"><h2>Проверь свой сайт</h2><div class="mark" style="background-color:#fff"><b>04</b></div></div>
       <div class="frame m-intro">16 пунктов, которые закрывают самые частые дыры. Если ответ «не знаю», не отмечайте пункт и спросите разработчика.</div>
       <div class="check">
         <div class="groups" id="groups"></div>
@@ -1071,7 +1072,7 @@ body.mats footer { display: none; }
     </div>
     <div class="f-panel f-cols">
       <div><div class="f-h">Разделы</div><div class="f-links"><a href="#services">Что я делаю</a><a href="#about">Обо мне</a><a href="#products">Мои стартапы</a><a href="#process">Как работаем</a><a href="#faq">Вопросы</a></div></div>
-      <div><div class="f-h">Бесплатно</div><div class="f-links"><a href="#materials">Материалы</a><a href="#m-check">Чек-лист</a><a href="#m-prompts">Промпты</a></div></div>
+      <div><div class="f-h">Бесплатно</div><div class="f-links"><a href="#materials">Материалы</a><a href="#m-check">Чек-лист</a><a href="#m-skills">Скиллы</a></div></div>
     </div>
   </div>
   <div class="f-panel f-bar"><span>hello.nikaa</span><span>© 2026 Вероника Попова</span><a href="#top">Наверх ↑</a></div>
@@ -1115,29 +1116,25 @@ const SKILLS = [
     try: "Сделай аудит моего лендинга: что мешает людям оставить заявку." },
   { role: "Аналитик", title: "last30days", market: "mvanhorn/last30days-skill", install: "last30days@last30days-skill",
     what: "Собирает, что обсуждают за последние 30 дней на Reddit, YouTube, X и других площадках, и сводит в одну сводку. Удобно для поиска тем для контента.",
-    try: "/last30days Claude Code — что люди хвалят и на что жалуются." }
-];
-const PROMPTS = [
-  { t: "Сайт-визитка одним сообщением", w: "Нужен простой сайт для бизнеса, быстро.",
-    p: "Сделай одностраничный сайт для [салона красоты в Дубае].\nКлиенты — [женщины 30–45 лет, ценят время].\nГлавная кнопка — [записаться в WhatsApp].\nСтиль: [спокойный, дорогой, заботливый].\nУслуги и цены: [список]. Ничего не придумывай, где нет данных — поставь заглушку.\nБез фиолетовых градиентов и шаблонных фраз. Сначала сделай удобную версию для телефона." },
-  { t: "Сайт по картинке, которая нравится", w: "Увидели красивый сайт и хотите такое же настроение.",
-    p: "Прикрепляю скриншот сайта, который мне нравится.\nОпиши, что в нём делает дизайн сильным: цвета, шрифты, сетка, отступы.\nПотом сделай в этом же настроении сайт для [моего бизнеса: чем занимаюсь].\nНе копируй один в один, возьми только стиль." },
-  { t: "План сайта перед стартом", w: "Не понимаете, какие блоки нужны и в каком порядке.",
-    p: "Я хочу сайт для [бизнес]. Цель сайта — [получать заявки на услугу].\nПока не пиши код. Предложи структуру: блоки по порядку, что в каждом написать и зачем он нужен клиенту.\nНе больше 7 блоков. Потом задай мне вопросы, если чего-то не хватает." },
-  { t: "Тексты, которые не звучат как реклама", w: "Тексты на сайте сухие или «продающие» до неловкости.",
-    p: "Вот тексты моего сайта: [вставить текст].\nПерепиши их простым языком, как будто владелец рассказывает о бизнесе другу.\nУбери слова «инновационный», «уникальный», «лучший» и восклицательные знаки.\nЗаголовки — о пользе для клиента, а не о компании." },
-  { t: "Проверка на телефоне", w: "Сайт готов, но страшно открыть его со смартфона.",
-    p: "Проверь сайт на ширине экрана телефона, 375 px.\nНайди всё, что вылезает за край, слишком мелко или неудобно нажимать пальцем.\nИсправь это, не меняя дизайн на компьютере. В конце напиши списком, что поправил." },
-  { t: "Проверка защиты сайта", w: "На сайте есть формы, база клиентов или админка.",
-    p: "Проверь проект на безопасность и объясни простыми словами, без терминов:\n— не видны ли ключи и пароли в коде страницы;\n— может ли посторонний прочитать данные из базы;\n— открывается ли админка без входа;\n— защищены ли формы от спама.\nДля каждой проблемы напиши, насколько она опасна, и исправь." },
-  { t: "Telegram-бот для заявок", w: "Заявки теряются в переписках и звонках.",
-    p: "Сделай Telegram-бота для [бизнес].\nБот здоровается, задаёт клиенту вопросы: [имя, телефон, какая услуга, удобное время] — и присылает заявку мне в личные сообщения.\nОбъясни пошагово, как создать бота и запустить его, как будто я делаю это впервые." },
-  { t: "Простая система записи", w: "Записи ведутся в блокноте или в чатах.",
-    p: "Сделай веб-приложение для записи клиентов в [салон / клинику / студию].\nНужно: список мастеров, расписание по дням, запись клиента на свободное время, список клиентов с историей визитов.\nСначала опиши, как будет устроено приложение и где будут храниться данные, и дождись моего «да»." },
-  { t: "Что-то сломалось", w: "После правки сайт или приложение перестали работать.",
-    p: "После последних изменений перестало работать: [что именно, например кнопка записи].\nОшибка: [текст ошибки или скриншот].\nНайди причину, объясни её простыми словами и исправь. Ничего другого не меняй." },
-  { t: "Объясни, как новичку", w: "Claude отвечает непонятными терминами.",
-    p: "Я не программист. Объясни, что ты сейчас сделал и что мне нужно сделать дальше, простыми словами и по шагам.\nЕсли нужно что-то нажать или установить — напиши, где именно это найти.\nТермины объясняй в скобках." }
+    try: "/last30days Claude Code — что люди хвалят и на что жалуются." },
+  { role: "UX-дизайнер", title: "UX Designer", npx: "npx skills add szilu/ux-designer-skill",
+    what: "Смотрит на интерфейс по скриншоту, ссылке или коду и находит, где человек запутается: путь до кнопки, отступы, контраст, тексты.",
+    try: "Посмотри мой сайт как UX-дизайнер: где человек застрянет и не оставит заявку?" },
+  { role: "Художник", title: "Canvas Design", npx: "npx skills add anthropics/skills -s canvas-design",
+    what: "Официальный скилл Anthropic: делает постеры, обложки и картинки в PNG и PDF с продуманной композицией.",
+    try: "Сделай постер для моего мероприятия в минималистичном стиле." },
+  { role: "Для приложений", title: "App Store Screenshots", npx: "npx skills add ParthJadhav/app-store-screenshots",
+    what: "Делает продающие скриншоты для App Store и Google Play: описываете приложение один раз и получаете набор во всех нужных размерах и языках.",
+    try: "Сделай скриншоты для App Store моего приложения." },
+  { role: "Дизайн без шаблонов", title: "Taste", npx: "npx skills add Leonxlnx/taste-skill -s design-taste-frontend",
+    what: "Убирает с сайтов «шаблонный ИИ-вид»: фиолетовые градиенты, одинаковые карточки и всё по центру. Дизайн получается как у живого дизайнера.",
+    try: "Сделай лендинг для моего бизнеса — без шаблонного вида." },
+  { role: "Аниматор", title: "Transitions", npx: "npx skills add Jakubantalik/transitions.dev -s transitions-dev",
+    what: "Библиотека готовых анимаций: карточки, цифры, уведомления, смена текста. Claude сам вставляет их в ваш проект.",
+    try: "Добавь плавные анимации на мой сайт: карточки, кнопки, появление блоков." },
+  { role: "Разработчик", title: "Web Artifacts Builder", npx: "npx skills add anthropics/skills -s web-artifacts-builder",
+    what: "Официальный скилл Anthropic для сложных страниц внутри Claude: React, Tailwind и готовые компоненты, всё собирается в один HTML-файл.",
+    try: "Собери калькулятор стоимости моих услуг как веб-страницу." }
 ];
 const CHECK = [
   { g: "Кому принадлежит сайт", items: [
@@ -1331,22 +1328,12 @@ document.getElementById("plugins").innerHTML = PLUGINS.map((p, i) => `
   </article>`).join("");
 document.getElementById("skills").innerHTML = SKILLS.map((s, i) => `
   <article class="frame item">
-    <div class="label"><span>${s.role}</span><i>0${i + 1}</i></div>
+    <div class="label"><span>${s.role}</span><i>${String(i + 1).padStart(2, "0")}</i></div>
     <div class="in">
       <h3>${s.title}</h3>
       <p>${s.what}</p>
-      ${cmd(`/plugin marketplace add ${s.market}`)}${cmd(`/plugin install ${s.install}`)}
+      ${s.npx ? cmd(s.npx) : cmd(`/plugin marketplace add ${s.market}`) + cmd(`/plugin install ${s.install}`)}
       <dl><div><dt>Попробуйте</dt><dd>${esc(s.try)}</dd></div></dl>
-    </div>
-  </article>`).join("");
-document.getElementById("prompts").innerHTML = PROMPTS.map((p, i) => `
-  <article class="frame item prompt">
-    <div class="label"><span>Промпт</span><i>${String(i + 1).padStart(2, "0")}</i></div>
-    <div class="in">
-      <h3>${p.t}</h3>
-      <p>${p.w}</p>
-      <div class="body">${markFields(p.p)}</div>
-      <div class="foot"><span>Замените выделенное</span><button class="copy" data-i="${i}">Копировать</button></div>
     </div>
   </article>`).join("");
 let n = 0;
@@ -1356,8 +1343,7 @@ document.getElementById("meter").innerHTML = "<i></i>".repeat(16);
 
 document.addEventListener("click", e => {
   const b = e.target.closest(".copy"); if (!b) return;
-  if (b.dataset.i) copyText(PROMPTS[+b.dataset.i].p, b);
-  else copyText(b.parentElement.querySelector("code").textContent, b);
+  copyText(b.parentElement.querySelector("code").textContent, b);
 });
 
 const boxes = [...document.querySelectorAll("#groups input")];
@@ -1381,8 +1367,7 @@ boxes.forEach(b => b.addEventListener("change", score)); score();
 const home = document.getElementById("home"), mats = document.getElementById("materials-view");
 const DETAIL = {
   "m-plugins": { t: "5 плагинов для Claude Code", d: "Дизайн без шаблонов, свежая документация и проверка безопасности" },
-  "m-skills": { t: "5 скиллов для Claude", d: "Редактор, дизайнер, маркетолог, аналитик и офис-менеджер в одном Claude" },
-  "m-prompts": { t: "10 промптов для сайтов и ботов", d: "Копируете, меняете пару слов и получаете готовый результат" },
+  "m-skills": { t: "11 скиллов для Claude", d: "Дизайн без шаблонов, анимации, картинки, тексты и аналитика в одном Claude" },
   "m-check": { t: "Чек-лист: проверь свой сайт", d: "16 пунктов, чтобы база клиентов не утекла" },
   "m-install": { t: "Как установить плагины и скиллы", d: "Две команды в Claude Code и пара минут" }
 };
