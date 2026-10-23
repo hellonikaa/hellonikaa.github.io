@@ -353,6 +353,9 @@ li, dd, label span { text-wrap: pretty; }
 .products { margin-top: 120px; container-type: inline-size; }
 .sec-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .sec-title h2 { font-size: clamp(54px, 8.6vw, 132px); color: var(--blue); background: var(--paper); padding-right: 10px; }
+.sec-title h2 { min-width: 0; }
+.sec-title .mark { flex-shrink: 0; }
+@media (max-width: 480px) { .sec-title h2 { font-size: min(54px, 12.5vw); } }
 .cases { display: flex; gap: 2.75cqw; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: none; }
 .cases::-webkit-scrollbar { display: none; }
 .case {
