@@ -966,7 +966,7 @@ body.mats footer { display: none; }
   <div class="goods">
     <aside class="goods-left">
       <div id="g-list-head">
-        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(07)</sup></span></h1>
+        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(08)</sup></span></h1>
         <p class="g-sub">Бесплатные материалы для тех, кто делает сайты, ботов и сервисы с ИИ.</p>
       </div>
       <div id="g-detail-head" hidden>
@@ -988,6 +988,7 @@ body.mats footer { display: none; }
         <a class="good" href="#m-ux"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 13h8"/><rect x="9" y="9" width="6" height="3" rx="1"/></svg></span><span class="gt"><b>UX-аудит MVP за час</b><span>Чек-лист по закону Хика: где вы теряете пользователей</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-audit"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5M8 11h6"/></svg></span><span class="gt"><b>Промпт: аудит сайта снаружи</b><span>Скорость, безопасность и SEO без доступа к коду</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-tests"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7 15h10"/></svg></span><span class="gt"><b>Промпт: почистить тесты</b><span>Для тех, кто пишет код с Claude Code</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="good" href="#m-site"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h4M8 16h8"/></svg></span><span class="gt"><b>Промпт: сайт по референсу</b><span>Скелет с refero.design, свой бренд и дизайн-система</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
       <div class="goods-detail" id="g-detail" hidden>
     <section class="m-sec" id="m-install">
@@ -1286,6 +1287,46 @@ ID (A-01, C-03, ...)
           <div class="foot"><span>Скопируйте и отправьте в Claude Code</span><button class="copy" data-p="pr-tests">Копировать</button></div>
         </div>
       </article>
+    </section>
+
+    <section class="m-sec" id="m-site">
+      <div class="sec-title"><h2>Сайт по референсу</h2><div class="mark" style="background-color:#fff"><b>08</b></div></div>
+      <article class="frame item prompt">
+        <div class="label"><span>Промпт</span><i>сайт</i></div>
+        <div class="in">
+          <h3>Чужой скелет — ваш бренд</h3>
+          <p>Найдите на refero.design сайт, структура которого нравится, и вставьте ссылку. В квадратных скобках укажите свою тему. Claude повторит сетку, отступы и поведение элементов, а бренд, тексты и цвета сделает под вашу нишу.</p>
+          <div class="body" id="pr-site">1. Build a website based on this reference: [ССЫЛКА С REFERO.DESIGN]
+
+Copy the skeleton 1:1: layout, grid, spacing, typography, and the behavior of interactive elements (navbar, scroll effects, color inversion over dark sections, etc.). Do not copy the reference’s brand, content, or color theme.
+
+My site’s theme: [ТЕМА / НИША, например «coffee shop», «yoga studio», «shoe brand»]. Use the reference only as a base for structure and visual language — adapt the content, copy, and design details to my theme.
+
+Come up with the brand name and a short positioning line yourself, in the spirit of the reference.
+
+Instead of real photos, make simple SVG placeholders matching the theme (silhouette + texture, palette fitting the niche) — I’ll swap in real photos myself later, keeping the same file paths and names.
+
+2. Save everything in a new, separate folder — don’t touch any existing project files.
+
+Document the design system in a DESIGN.md file: color palette (hex codes from the reference), font and size scale, spacing and section rhythm, button/card style (radii, shadows), container width and page margins.
+
+Check responsiveness on both mobile and desktop before finishing.
+
+Once done, bundle the site into a single self-contained file and publish it as an Artifact to get a live link.</div>
+          <div class="foot"><span>Скопируйте и отправьте в Claude Code</span><button class="copy" data-p="pr-site">Копировать</button></div>
+        </div>
+      </article>
+      <div class="frame note-box">
+        <h3>Как потом формулировать правки</h3>
+        <p>Формула: что не так → что должно быть вместо → что не трогать.</p>
+        <ul>
+          <li><b>Заменить фото:</b> «Замени фото в hero — вместо синей заливки поставь на фон это фото, текст оставь поверх»</li>
+          <li><b>Изменить кнопку:</b> «Сделай кнопку "Смотреть коллекцию" крупнее и подвинь ближе к центру»</li>
+          <li><b>Поправить текст:</b> «Увеличь колонку с текстом — слово "зим" должно быть на одной строке с "переживёт десять"»</li>
+          <li><b>Убрать отступ:</b> «Убери отступ между блоком "Сообщество" и футером, они должны идти впритык»</li>
+          <li><b>Сослаться на скрин:</b> «[прикрепи скриншот] сделай как на фото — вот этот отступ убери, остальное не трогай»</li>
+        </ul>
+      </div>
     </section>
 
       </div>
@@ -1607,7 +1648,8 @@ const DETAIL = {
   "m-install": { t: "Как установить плагины и скиллы", d: "Две команды в Claude Code и пара минут" },
   "m-ux": { t: "UX-аудит MVP за час", d: "Чек-лист по закону Хика: где вы теряете пользователей" },
   "m-audit": { t: "Промпт: аудит сайта снаружи", d: "Скорость, безопасность и SEO без доступа к коду" },
-  "m-tests": { t: "Промпт: почистить тесты", d: "Для тех, кто пишет код с Claude Code" }
+  "m-tests": { t: "Промпт: почистить тесты", d: "Для тех, кто пишет код с Claude Code" },
+  "m-site": { t: "Промпт: сайт по референсу", d: "Скелет с refero.design, свой бренд и дизайн-система" }
 };
 const MAT_IDS = ["materials", ...Object.keys(DETAIL)];
 function route() {
