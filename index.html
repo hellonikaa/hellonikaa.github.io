@@ -698,6 +698,18 @@ body.mats footer { display: none; }
 .prompt .copy { border: 0; border-radius: 5px; background: var(--blue); color: #fff; }
 .prompt .copy.ok { background: var(--ink); }
 .prompt .body.long { max-height: 62vh; overflow: auto; font-size: 14px; }
+.vids { display: grid; gap: 14px; }
+.vid { text-decoration: none; color: inherit; transition: transform .3s cubic-bezier(.2,.9,.2,1), box-shadow .3s; }
+.vid:hover { transform: translateY(-3px); box-shadow: 0 10px 0 -4px rgba(0,0,0,0.12); }
+.vid .cover { position: relative; aspect-ratio: 16 / 9; border-bottom: var(--rule); overflow: hidden; background: var(--blue); }
+.vid .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vid .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; transition: transform .3s cubic-bezier(.2,.9,.2,1); }
+.vid .play svg { width: 26px; height: 26px; margin-left: 4px; }
+.vid:hover .play { transform: scale(1.08); }
+.vid h3 { font-size: 30px; }
+.vid .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 10px; margin-top: auto; font-size: 13px; color: var(--soft); }
+.vid .foot span { white-space: nowrap; }
+.vid .foot b { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 15px; color: var(--blue); white-space: nowrap; }
 .check.ux { grid-template-columns: minmax(0,1fr); }
 .ux-lead { display: none; }
 .goods-detail .ux-lead { display: block; margin: 0 0 14px; }
@@ -966,7 +978,7 @@ body.mats footer { display: none; }
   <div class="goods">
     <aside class="goods-left">
       <div id="g-list-head">
-        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(08)</sup></span></h1>
+        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(09)</sup></span></h1>
         <p class="g-sub">Бесплатные материалы для тех, кто делает сайты, ботов и сервисы с ИИ.</p>
       </div>
       <div id="g-detail-head" hidden>
@@ -989,6 +1001,7 @@ body.mats footer { display: none; }
         <a class="good" href="#m-audit"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5M8 11h6"/></svg></span><span class="gt"><b>Промпт: аудит сайта снаружи</b><span>Скорость, безопасность и SEO без доступа к коду</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-tests"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7 15h10"/></svg></span><span class="gt"><b>Промпт: почистить тесты</b><span>Для тех, кто пишет код с Claude Code</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-site"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h4M8 16h8"/></svg></span><span class="gt"><b>Промпт: сайт по референсу</b><span>Скелет с refero.design, свой бренд и дизайн-система</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="good" href="#m-video"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></span><span class="gt"><b>Видео: основы сайта</b><span>5 коротких роликов: хостинг, фронтенд и бэкенд, API, базы данных, GitHub</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
       <div class="goods-detail" id="g-detail" hidden>
     <section class="m-sec" id="m-install">
@@ -1329,6 +1342,61 @@ Once done, bundle the site into a single self-contained file and publish it as a
       </div>
     </section>
 
+    <section class="m-sec" id="m-video">
+      <div class="sec-title"><h2>Основы сайта</h2><div class="mark" style="background-color:#fff"><b>09</b></div></div>
+      <div class="vids">
+        <a class="frame item vid" href="https://www.youtube.com/watch?v=v80A1i-82CE" target="_blank" rel="noopener">
+          <div class="label"><span>Видео 1</span><i>11 мин</i></div>
+          <div class="cover"><img src="img/videos/v80A1i-82CE.jpg" alt="Обложка ролика «Как устроен интернет: хостинг и домен»" loading="lazy" width="640" height="360"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+          <div class="in">
+            <h3>Как устроен интернет: хостинг и домен</h3>
+            <p>Где «живёт» сайт и как он попадает к людям.</p>
+            <div class="foot"><span>125 тыс. просмотров</span><b>На YouTube ↗</b></div>
+          </div>
+        </a>
+        <a class="frame item vid" href="https://www.youtube.com/watch?v=GQJrzIJEsJ0" target="_blank" rel="noopener">
+          <div class="label"><span>Видео 2</span><i>5 мин</i></div>
+          <div class="cover"><img src="img/videos/GQJrzIJEsJ0.jpg" alt="Обложка ролика «Что такое фронтенд и бэкенд»" loading="lazy" width="640" height="360"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+          <div class="in">
+            <h3>Что такое фронтенд и бэкенд</h3>
+            <p>Что видит пользователь и что работает «за кулисами».</p>
+            <div class="foot"><span>159 тыс. просмотров</span><b>На YouTube ↗</b></div>
+          </div>
+        </a>
+        <a class="frame item vid" href="https://www.youtube.com/watch?v=fXa_2rllZTI" target="_blank" rel="noopener">
+          <div class="label"><span>Видео 3</span><i>6 мин</i></div>
+          <div class="cover"><img src="img/videos/fXa_2rllZTI.jpg" alt="Обложка ролика «Что такое API»" loading="lazy" width="640" height="360"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+          <div class="in">
+            <h3>Что такое API</h3>
+            <p>Как программы и сервисы общаются между собой.</p>
+            <div class="foot"><span>506 тыс. просмотров</span><b>На YouTube ↗</b></div>
+          </div>
+        </a>
+        <a class="frame item vid" href="https://www.youtube.com/watch?v=mvpDRH37IBQ" target="_blank" rel="noopener">
+          <div class="label"><span>Видео 4</span><i>7 мин</i></div>
+          <div class="cover"><img src="img/videos/mvpDRH37IBQ.jpg" alt="Обложка ролика «Что такое базы данных»" loading="lazy" width="640" height="360"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+          <div class="in">
+            <h3>Что такое базы данных</h3>
+            <p>Где хранятся заявки, клиенты и заказы.</p>
+            <div class="foot"><span>176 тыс. просмотров</span><b>На YouTube ↗</b></div>
+          </div>
+        </a>
+        <a class="frame item vid" href="https://www.youtube.com/watch?v=JfpCicDUMKc" target="_blank" rel="noopener">
+          <div class="label"><span>Видео 5</span><i>16 мин</i></div>
+          <div class="cover"><img src="img/videos/JfpCicDUMKc.jpg" alt="Обложка ролика «GitHub за 15 минут»" loading="lazy" width="640" height="360"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+          <div class="in">
+            <h3>GitHub за 15 минут</h3>
+            <p>Как сохранять проект и не потерять работу.</p>
+            <div class="foot"><span>876 тыс. просмотров</span><b>На YouTube ↗</b></div>
+          </div>
+        </a>
+      </div>
+      <div class="frame note-box">
+        <h3>Ролики не новые?</h3>
+        <p>Некоторые ролики снимали несколько лет назад, но базовые понятия с тех пор не изменились.</p>
+      </div>
+    </section>
+
       </div>
     </div>
   </div>
@@ -1649,7 +1717,8 @@ const DETAIL = {
   "m-ux": { t: "UX-аудит MVP за час", d: "Чек-лист по закону Хика: где вы теряете пользователей" },
   "m-audit": { t: "Промпт: аудит сайта снаружи", d: "Скорость, безопасность и SEO без доступа к коду" },
   "m-tests": { t: "Промпт: почистить тесты", d: "Для тех, кто пишет код с Claude Code" },
-  "m-site": { t: "Промпт: сайт по референсу", d: "Скелет с refero.design, свой бренд и дизайн-система" }
+  "m-site": { t: "Промпт: сайт по референсу", d: "Скелет с refero.design, свой бренд и дизайн-система" },
+  "m-video": { t: "Видео: основы сайта", d: "5 коротких роликов: хостинг, фронтенд и бэкенд, API, базы данных, GitHub" }
 };
 const MAT_IDS = ["materials", ...Object.keys(DETAIL)];
 function route() {
