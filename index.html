@@ -697,6 +697,18 @@ body.mats footer { display: none; }
 .prompt .foot span { font-size: 13px; color: var(--soft); }
 .prompt .copy { border: 0; border-radius: 5px; background: var(--blue); color: #fff; }
 .prompt .copy.ok { background: var(--ink); }
+.tm-pr { margin-top: 4px; border: var(--rule); border-radius: 5px; background: #fff; }
+.tm-pr summary { cursor: pointer; list-style: none; padding: 12px 14px; font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 15px; color: var(--blue); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.tm-pr summary::-webkit-details-marker { display: none; }
+.tm-pr summary::after { content: "+"; font-size: 22px; line-height: 1; }
+.tm-pr[open] summary::after { content: "\2212"; }
+.tm-pr[open] summary { border-bottom: var(--rule); }
+.tm-pr .prompt { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.tm-pr .body { word-break: break-word; }
+.tm-note { padding: 0 14px 14px; font-size: 14px; line-height: 1.55; display: grid; gap: 8px; }
+.tm-note p, .tm-note ul { margin: 0; }
+.tm-note ul { padding-left: 18px; display: grid; gap: 4px; }
+.tm-note code { font-size: 13px; background: #f2f7fd; padding: 1px 4px; border-radius: 3px; word-break: break-all; }
 .prompt .body.long { max-height: 62vh; overflow: auto; font-size: 14px; }
 .vids { display: grid; gap: 14px; }
 .vid { text-decoration: none; color: inherit; transition: transform .3s cubic-bezier(.2,.9,.2,1), box-shadow .3s; }
@@ -1778,31 +1790,174 @@ description: Утренняя планёрка — статус всех отд�
       <div class="m-grid">
         <div class="frame item">
           <div class="label"><span>Продакт-менеджер</span><i>01</i></div>
-          <div class="in"><p><b>Делает:</b> Исследует рынок, пишет ТЗ и разбивает проект на задачи.</p><ul><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-skills</b></a> · ⭐ 24k — исследование, стратегия, PRD, метрики</li><li><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener"><b>spec-kit от GitHub</b></a> · ⭐ 120k+ — от описания продукта до плана и задач</li><li><a href="https://github.com/alirezarezvani/claude-skills" target="_blank" rel="noopener"><b>claude-skills</b></a> · ⭐ 28k — приоритизация, спринты, user stories</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/product-manager.md</p></div>
+          <div class="in"><p><b>Делает:</b> Исследует рынок, пишет ТЗ и разбивает проект на задачи.</p><ul><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-skills</b></a> · ⭐ 24k — исследование, стратегия, PRD, метрики</li><li><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener"><b>spec-kit от GitHub</b></a> · ⭐ 120k+ — от описания продукта до плана и задач</li><li><a href="https://github.com/alirezarezvani/claude-skills" target="_blank" rel="noopener"><b>claude-skills</b></a> · ⭐ 28k — приоритизация, спринты, user stories</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/product-manager.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr1">Установи для продакт-менеджера три набора навыков и проверь, что они работают.
+
+1. phuryn/pm-skills (идея, стратегия, PRD, метрики):
+   claude plugin marketplace add phuryn/pm-skills
+   claude plugin install pm-product-discovery@pm-skills
+   claude plugin install pm-product-strategy@pm-skills
+   claude plugin install pm-execution@pm-skills
+   claude plugin install pm-data-analytics@pm-skills
+
+2. github/spec-kit (спецификация, план, задачи, код):
+   uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+   specify init . --ai claude
+   Если uv не установлен, сначала поставь его и скажи мне об этом.
+
+3. alirezarezvani/claude-skills (приоритизация, спринты, user stories):
+   claude plugin marketplace add alirezarezvani/claude-skills
+   claude plugin install product-skills@claude-code-skills
+   claude plugin install pm-skills@claude-code-skills
+
+Установи только перечисленные плагины, остальные из этих репозиториев не ставь.
+
+Потом создай или дополни файл CLAUDE.md в корне проекта этим правилом:
+"Разделение ролей навыков: PRD, исследование, стратегия и метрики делаем только навыками pm-skills (phuryn). Спецификации, план и технические задачи только командами spec-kit (/speckit.*). Приоритизация, спринты и user stories только навыками product-skills и pm-skills из claude-code-skills. Не дублируй одну задачу разными наборами."
+
+В конце покажи список установленных плагинов и команд, а также что не удалось поставить и почему. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr1">Копировать</button></div></div><div class="tm-note"><p>Проверка: введи /plugin, во вкладке Installed должны появиться плагины из pm-skills и claude-skills. Spec-kit появится как команды /speckit.*.</p></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Разработчик</span><i>02</i></div>
-          <div class="in"><p><b>Делает:</b> Пишет код с тестами и проверяет приложение на симуляторе.</p><ul><li><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener"><b>Superpowers</b></a> · ⭐ 240k+ — тесты, поиск ошибок, дисциплина в коде</li><li><a href="https://github.com/upstash/context7" target="_blank" rel="noopener"><b>Context7</b></a> · ⭐ 50k+ — актуальная документация библиотек</li><li><a href="https://github.com/mobile-next/mobile-mcp" target="_blank" rel="noopener"><b>Mobile MCP</b></a> · ⭐ 8k — проверка приложения на симуляторе и эмуляторе</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/developer.md</p></div>
+          <div class="in"><p><b>Делает:</b> Пишет код с тестами и проверяет приложение на симуляторе.</p><ul><li><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener"><b>Superpowers</b></a> · ⭐ 240k+ — тесты, поиск ошибок, дисциплина в коде</li><li><a href="https://github.com/upstash/context7" target="_blank" rel="noopener"><b>Context7</b></a> · ⭐ 50k+ — актуальная документация библиотек</li><li><a href="https://github.com/mobile-next/mobile-mcp" target="_blank" rel="noopener"><b>Mobile MCP</b></a> · ⭐ 8k — проверка приложения на симуляторе и эмуляторе</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/developer.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr2">Установи для разработчика мобильных приложений инструменты и проверь, что они работают.
+
+1. obra/superpowers:
+   /plugin marketplace add obra/superpowers-marketplace
+   /plugin install superpowers@superpowers-marketplace
+
+2. Context7:
+   npx ctx7 setup
+   Если не получится: claude mcp add context7 -- npx -y @upstash/context7-mcp
+
+3. Mobile MCP:
+   claude mcp add mobile-mcp -- npx -y @mobilenext/mobile-mcp@latest
+   Сначала проверь, что на компьютере стоят Node.js, Xcode (для iOS) и Android SDK (для Android), и скажи мне, чего не хватает.
+
+Установи только эти три, остальное не ставь.
+
+Потом создай или дополни файл CLAUDE.md в корне проекта этим правилом:
+"Разделение ролей: спецификации, план и задачи делаем только командами spec-kit (/speckit.*). Superpowers используем только для исполнения: тесты, отладка, проверка кода, рабочие ветки. Не запускай обсуждение идеи и планирование из Superpowers. Внешний вид экранов берём только из работы дизайнера, которая лежит в проекте, своих визуальных решений не придумываем. Если чего-то не хватает, спроси. Для работы с библиотеками и фреймворками используй Context7, для проверки экранов на симуляторе или эмуляторе Mobile MCP."
+
+В конце покажи список установленного и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr2">Копировать</button></div></div><div class="tm-note"><p>Дополнительно (по желанию, после согласования с безопасником):</p><ul><li>Только iPhone и Mac: XcodeBuildMCP (около 6 тыс. звёзд): <code>claude mcp add XcodeBuildMCP -- npx -y xcodebuildmcp@latest mcp</code>. Статистику Sentry отключить в настройках.</li><li>Специалисты по стеку (бэкенд, базы данных, DevOps): каталог wshobson/agents (около 38 тыс. звёзд): <code>/plugin marketplace add wshobson/agents</code>, затем через /plugin выбрать только нужные плагины.</li></ul></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Тестировщик</span><i>03</i></div>
-          <div class="in"><p><b>Делает:</b> Гоняет автотесты и пишет баг-репорты.</p><ul><li><a href="https://github.com/mobile-dev-inc/maestro" target="_blank" rel="noopener"><b>Maestro</b></a> · ⭐ 13k — автотесты экранов</li><li><a href="https://github.com/softaworks/agent-toolkit" target="_blank" rel="noopener"><b>qa-test-planner</b></a> · ⭐ 27k — тест-планы и баг-репорты</li><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>code-review</b></a> · Anthropic — второй взгляд на код</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/tester.md</p></div>
+          <div class="in"><p><b>Делает:</b> Гоняет автотесты и пишет баг-репорты.</p><ul><li><a href="https://github.com/mobile-dev-inc/maestro" target="_blank" rel="noopener"><b>Maestro</b></a> · ⭐ 13k — автотесты экранов</li><li><a href="https://github.com/softaworks/agent-toolkit" target="_blank" rel="noopener"><b>qa-test-planner</b></a> · ⭐ 27k — тест-планы и баг-репорты</li><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>code-review</b></a> · Anthropic — второй взгляд на код</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/tester.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr3">Установи для тестировщика мобильных приложений инструменты и проверь, что они работают.
+
+1. Maestro:
+   Проверь, что установлена Java 17 или новее, и скажи мне, если нет.
+   Установи Maestro CLI и подключи его: claude mcp add maestro -- maestro mcp
+   Если система не macOS, не гадай, остановись и спроси меня, как ставить.
+
+2. qa-test-planner:
+   npx -y skills add davila7/claude-code-templates --skill qa-test-planner --agent claude-code
+
+3. Плагин Anthropic:
+   /plugin install code-review@claude-plugins-official
+
+Установи только эти инструменты, остальное не ставь.
+
+Потом создай или дополни файл CLAUDE.md в корне проекта этим правилом:
+"Роль тестировщика: код приложения не правим, только находим и описываем проблемы. Проверку экранов на симуляторе и эмуляторе делаем только через Maestro (Mobile MCP оставляем разработчику). Тест-планы, тест-кейсы и баг-репорты делаем навыком qa-test-planner. Проверку изменений кода делаем плагином code-review. Проверку безопасности делает безопасник. Каждый баг описываем так, чтобы его можно было воспроизвести: шаги, что ожидали, что получили, на каком устройстве. Баги сохраняй в папку bugs/ в корне проекта."
+
+В конце покажи список установленного и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr3">Копировать</button></div></div><div class="tm-note"><p>Что учесть: Maestro требует Java, а iOS-симулятор работает только на Mac. На Windows можно проверять только Android.</p></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Безопасник</span><i>04</i></div>
-          <div class="in"><p><b>Делает:</b> Ищет уязвимости и проверяет сами плагины на вредоносный код.</p><ul><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>security-guidance</b></a> · Anthropic — ищет уязвимости при каждом изменении</li><li><a href="https://github.com/trailofbits/skills" target="_blank" rel="noopener"><b>Trail of Bits skills</b></a> · ⭐ 6k — аудит от известной компании по безопасности</li><li><a href="https://github.com/snyk/agent-scan" target="_blank" rel="noopener"><b>Snyk Agent Scan</b></a> · ⭐ 3k — проверяет сами плагины на вредоносный код</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/security.md</p></div>
+          <div class="in"><p><b>Делает:</b> Ищет уязвимости и проверяет сами плагины на вредоносный код.</p><ul><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>security-guidance</b></a> · Anthropic — ищет уязвимости при каждом изменении</li><li><a href="https://github.com/trailofbits/skills" target="_blank" rel="noopener"><b>Trail of Bits skills</b></a> · ⭐ 6k — аудит от известной компании по безопасности</li><li><a href="https://github.com/snyk/agent-scan" target="_blank" rel="noopener"><b>Snyk Agent Scan</b></a> · ⭐ 3k — проверяет сами плагины на вредоносный код</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/security.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr4">Установи для специалиста по безопасности инструменты и проверь, что они работают.
+
+1. Плагин security-guidance:
+   /plugin install security-guidance@claude-plugins-official
+
+2. Trail of Bits:
+   /plugin marketplace add trailofbits/skills
+   Покажи мне список плагинов и поставь только эти (проверь, что названия есть в списке): differential-review, insecure-defaults, audit-context-building, agentic-actions-auditor, firebase-apk-scanner. Если какого-то нет, скажи мне, ничего другого не подставляй.
+
+3. Snyk Agent Scan:
+   Проверь, что установлен uv, и попроси меня указать токен SNYK_TOKEN (не придумывай и не записывай его в файлы проекта).
+   После этого запусти uvx snyk-agent-scan@latest --skills и покажи мне результат по всем установленным плагинам и навыкам.
+
+4. Программы: проверь, что установлены Trivy и Gitleaks (на Mac через brew), и скажи, чего не хватает. MobSF в Docker запусти только после моего подтверждения.
+
+Установи только перечисленное, остальное не ставь.
+
+Потом создай или дополни файл CLAUDE.md в корне проекта этим правилом:
+"Роль безопасника: код приложения не правим, только находим проблемы и пишем отчёт в папку security/. Найденные пароли и ключи в отчёты и в чат целиком не копируем, показываем только маскированно (первые 4 символа). Любой новый плагин, навык или MCP-сервер сначала проверяем через snyk-agent-scan и ставим только после моего подтверждения. Устанавливаем только из репозиториев, которые я назвала. Для зависимостей используем Trivy, для секретов Gitleaks, для мобильных приложений MobSF."
+
+В конце покажи список установленного и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr4">Копировать</button></div></div><div class="tm-note"><p>Что учесть:</p><ul><li>Snyk Agent Scan требует бесплатный токен Snyk и интернет, анализ идёт на стороне Snyk.</li><li>MobSF запускается так: <code>docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest</code>. Пароль по умолчанию (mobsf/mobsf) сразу сменить.</li><li>Первым делом безопасник прогоняет snyk-agent-scan по плагинам всех остальных ролей.</li></ul></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Дизайнер</span><i>05</i></div>
-          <div class="in"><p><b>Делает:</b> Стили, интерфейс и анимации.</p><ul><li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener"><b>UI/UX Pro Max</b></a> · ⭐ 110k — стили, палитры, шрифты</li><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>frontend-design</b></a> · ⭐ 160k+ — рисует интерфейс</li><li><a href="https://github.com/emilkowalski/skills" target="_blank" rel="noopener"><b>Emil Kowalski skills</b></a> · ⭐ 38k — анимации</li><li><a href="https://github.com/vercel-labs/agent-skills" target="_blank" rel="noopener"><b>web-design-guidelines от Vercel</b></a> · ⭐ 30k — проверка интерфейса</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/designer.md</p></div>
+          <div class="in"><p><b>Делает:</b> Стили, интерфейс и анимации.</p><ul><li><a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener"><b>UI/UX Pro Max</b></a> · ⭐ 110k — стили, палитры, шрифты</li><li><a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener"><b>frontend-design</b></a> · ⭐ 160k+ — рисует интерфейс</li><li><a href="https://github.com/emilkowalski/skills" target="_blank" rel="noopener"><b>Emil Kowalski skills</b></a> · ⭐ 38k — анимации</li><li><a href="https://github.com/vercel-labs/agent-skills" target="_blank" rel="noopener"><b>web-design-guidelines от Vercel</b></a> · ⭐ 30k — проверка интерфейса</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/designer.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr5">Установи для дизайнера интерфейсов инструменты и проверь, что они работают.
+
+1. UI/UX Pro Max:
+   /plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+   /plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+
+2. Frontend Design:
+   /plugin install frontend-design@claude-plugins-official
+
+3. Emil Kowalski Skills:
+   npx skills@latest add emilkowalski/skills
+
+4. Web Design Guidelines:
+   npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines
+   Установи только этот один навык из репозитория, остальные не ставь.
+
+Установи только перечисленное, браузерные инструменты и остальное не ставь.
+
+Потом создай или дополни файл CLAUDE.md в корне проекта этим правилом:
+"Роль дизайнера: дизайн-систему (стили, палитры, шрифты, правила UX) выбираем навыком ui-ux-pro-max и записываем в файл DESIGN.md в корне проекта. Интерфейсы рисуем навыком frontend-design строго по DESIGN.md. Анимации и микровзаимодействия делаем навыками emilkowalski. Готовый результат проверяем навыком web-design-guidelines. Работаем только с интерфейсом, стилями и анимациями, логику приложения не меняем. Результаты сохраняем в папку design/, оттуда их берёт разработчик. Если в дизайне чего-то не хватает, спроси, а не додумывай."
+
+В конце покажи список установленного и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr5">Копировать</button></div></div><div class="tm-note"><p>Что учесть:</p><ul><li>UI/UX Pro Max и Emil Kowalski сторонние. Перед установкой попроси безопасника прогнать snyk-agent-scan.</li><li>Для сложных анимаций сайтов (прокрутка, таймлайны) можно добавить официальный GSAP: <code>/plugin marketplace add greensock/gsap-skills</code>.</li><li>Без браузера Claude не видит, как выглядит результат. Дизайнер открывает файлы сам.</li></ul></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Аналитик</span><i>06</i></div>
-          <div class="in"><p><b>Делает:</b> Цифры, риски и конкуренты.</p><ul><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>data от Anthropic</b></a> · ⭐ 20k+ — запросы, статистика, дашборды</li><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>operations от Anthropic</b></a> · Anthropic — процессы, риски, поставщики</li><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-market-research</b></a> · ⭐ 24k — рынок, сегменты, конкуренты</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/analyst.md</p></div>
+          <div class="in"><p><b>Делает:</b> Цифры, риски и конкуренты.</p><ul><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>data от Anthropic</b></a> · ⭐ 20k+ — запросы, статистика, дашборды</li><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>operations от Anthropic</b></a> · Anthropic — процессы, риски, поставщики</li><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-market-research</b></a> · ⭐ 24k — рынок, сегменты, конкуренты</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/analyst.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr6">Настрой набор для бизнес-аналитика и кризис-менеджера и проверь, что он работает. Перед установкой покажи мне, что лежит в каждом плагине, и подожди подтверждения.
+
+1. /plugin marketplace add anthropics/knowledge-work-plugins
+   /plugin install data@knowledge-work-plugins
+   /plugin install operations@knowledge-work-plugins
+
+2. /plugin marketplace add phuryn/pm-skills
+   /plugin install pm-market-research@pm-skills
+
+Установи только эти три плагина. Внешние сервисы и коннекторы (Slack, Gmail, Notion, Jira, Asana и другие) сам не подключай.
+
+Если ранее были установлены incident-response, postmortem-writing, pm-go-to-market или competitive-brief, удали их и скажи мне, что удалил.
+
+Если файла ещё нет, создай analysis/market-context.md с заголовками и пустыми полями, я заполню их сама: что мы продаём; кому; страны и языки рынка; известные конкуренты; ценовой диапазон; ключевые вопросы по рынку; источники, которым доверяем.
+
+Допиши в CLAUDE.md правило роли (если там уже есть правила аналитика или кризисов, замени их этим):
+"Роль аналитика и кризис-менеджера: разбираем бизнес-проблемы и решения, собираем факты о рынке и данных, ведём риски и кризисы. PRD и спецификации не пишем (продакт), позиционирование, кампании и тексты для клиентов не делаем (маркетолог). Результаты сохраняем в analysis/. Перед задачей читаем analysis/market-context.md. Любой факт подкрепляем источником с датой, цифры без источника помечаем как оценку, актуальные данные берём веб-поиском. Размер рынка считаем двумя способами и показываем расхождение. Расчёты пересчитываем второй раз. Данные берём из выгрузок CSV и Excel, к базам и внешним сервисам без разрешения не подключаемся.
+Проблему разбираем по шагам: симптом, гипотезы, проверка данными, метод «5 почему», итоговая причина, варианты решения в таблице с критериями. Кризис это событие, которое угрожает выручке, клиентам, репутации или срокам. Серьёзность: 1 (потеря ключевого клиента или угроза выручке), 2 (заметное влияние), 3 (ограниченное), 4 (наблюдаем). Реестр рисков ведём навыком risk-assessment из operations. Во время кризиса ведём хронологию, ответственных и статус. После кризиса делаем разбор без поиска виноватых: что случилось, главная причина, что не заметили, что меняем. Тексты клиентам передаём маркетологу."
+
+В конце покажи список установленного, удалённого и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr6">Копировать</button></div></div><div class="tm-note"><p>Что учесть:</p><ul><li>Плагин data умеет подключаться к внешним сервисам, коннекторы включать только по одному и к нужным источникам.</li><li>Популярных проверенных навыков для деловых кризисов нет, порядок действий закреплён правилом выше. Навыки по IT-авариям (incident-response, postmortem-writing) намеренно не ставим.</li><li>Файл analysis/market-context.md заполняется один раз и дальше читается при каждой задаче.</li></ul></div></details></div>
         </div>
         <div class="frame item">
           <div class="label"><span>Маркетолог</span><i>07</i></div>
-          <div class="in"><p><b>Делает:</b> С какой ниши заходить и как продавать.</p><ul><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-go-to-market</b></a> · ⭐ 24k — с какой ниши заходить на рынок</li><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>marketing от Anthropic</b></a> · Anthropic — кампании, календарь, голос бренда</li><li><a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener"><b>marketingskills Корри Хейнса</b></a> · ⭐ 47k+ — тексты и страницы продаж</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/marketer.md</p></div>
+          <div class="in"><p><b>Делает:</b> С какой ниши заходить и как продавать.</p><ul><li><a href="https://github.com/phuryn/pm-skills" target="_blank" rel="noopener"><b>pm-go-to-market</b></a> · ⭐ 24k — с какой ниши заходить на рынок</li><li><a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener"><b>marketing от Anthropic</b></a> · Anthropic — кампании, календарь, голос бренда</li><li><a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener"><b>marketingskills Корри Хейнса</b></a> · ⭐ 47k+ — тексты и страницы продаж</li></ul><p style="font-size:14px;opacity:.7">Файл сотрудника: .claude/agents/marketer.md</p><details class="tm-pr"><summary>Промт для установки</summary><div class="prompt"><div class="body long" id="pr-tmr7">Настрой набор маркетолога и проверь, что он работает. Перед установкой каждого навыка покажи мне его SKILL.md и подожди подтверждения.
+
+1. Go-to-market:
+   /plugin marketplace add phuryn/pm-skills
+   /plugin install pm-go-to-market@pm-skills
+
+2. Marketing из Knowledge Work Plugins:
+   /plugin marketplace add anthropics/knowledge-work-plugins
+   /plugin install marketing@knowledge-work-plugins
+   Внешние коннекторы (HubSpot, Ahrefs, Canva и другие) сам не подключай.
+
+3. Marketing Skills Корри Хейнса:
+   npx skills add coreyhaines31/marketingskills --skill copywriting copy-editing marketing-psychology content-strategy page-cro
+   Покажи мне список навыков в репозитории и, если есть навык social-content, предложи его добавить, но ставь только после моего подтверждения. Скрипты и программы из репозитория не запускай и npm install не делай.
+
+Установи только перечисленное, остальное из репозиториев не ставь.
+
+Создай файл marketing/brand-context.md с этими заголовками и пустыми полями, я заполню их сама: что мы продаём (автоматизация бизнес-процессов, обучение ИИ и вайбкодингу); кому (аудитория); язык и страны; голос бренда (как говорим, чего избегаем); площадки (Instagram основная, YouTube позже); главные предложения и цены; доказательства (кейсы, отзывы, которые у нас реально есть); запрещённые темы и обещания.
+
+Допиши в CLAUDE.md правило роли маркетолога (если там уже есть правила маркетолога, замени их этим):
+"Роль маркетолога: отвечаем за позиционирование, сообщения, каналы, контент, кампании, тексты и страницы продаж. Данные о рынке, размер рынка и расчёты не делаем, берём их из папки analysis/ (аналитик). Перед любой задачей читаем marketing/brand-context.md и analysis/market-context.md. Тексты пишем на русском живым языком, без канцелярита. В текстах для сайтов и страниц не оставляем предлоги и короткие слова в конце строки, на последней строке не меньше двух слов. Истории из личного опыта автора в сценарии и посты не добавляем, если автор не дал их сама. Не обещаем гарантированный доход и результат, не выдумываем отзывы, кейсы и цифры, используем только то, что указано в marketing/brand-context.md. Основная площадка сейчас Instagram: каждый пост и Reels начинаем с сильного первого кадра или первой строки, пишем сценарий, текст на экране, подпись и призыв к действию. Календарь и кампании ведём навыками из плагина marketing, тексты навыками copywriting и copy-editing. Какую нишу или сегмент брать первым, предлагаем через pm-go-to-market, а решение принимаем вместе с продактом. Результаты сохраняем в папку marketing/. Каждую публикацию отдаём мне на подтверждение, сами ничего не публикуем."
+
+В конце покажи список установленного и что не удалось поставить. Ничего не удаляй вне этих шагов.</div><div class="foot"><span>Отправьте в Claude Code в папке проекта</span><button class="copy" data-p="pr-tmr7">Копировать</button></div></div><div class="tm-note"><p>Что учесть:</p><ul><li>Популярных проверенных навыков под Instagram Reels и YouTube нет (лучшие имеют около 1,2 тыс. и 260 звёзд), поэтому их в набор не включили. Формат Reels закреплён правилом выше. Когда начнётся YouTube, набор можно расширить.</li><li>В репозитории marketingskills есть программы на JavaScript. Ставить нужно только навыки, как в команде выше.</li></ul></div></details></div>
         </div>
       </div>
       <div class="frame note-box"><h3>Программы безопасника</h3><p>Кроме плагинов безопасник использует проверенные программы:</p><ul><li><a href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener"><b>Trivy</b></a> — уязвимости в библиотеках и контейнерах.</li><li><a href="https://github.com/gitleaks/gitleaks" target="_blank" rel="noopener"><b>Gitleaks</b></a> — пароли и ключи, случайно попавшие в код.</li><li><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="noopener"><b>MobSF</b></a> — проверка мобильных приложений.</li></ul></div>
