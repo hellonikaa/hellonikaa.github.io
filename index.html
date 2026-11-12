@@ -704,6 +704,8 @@ body.mats footer { display: none; }
 .where { display: inline-block; font-family: ui-monospace, Menlo, monospace; font-size: 12px; padding: 3px 9px; border-radius: 12px; margin: 2px 0 8px; }
 .where.pc { background: #e3efff; color: #0a5bd3; } .where.root { background: #ffe7e3; color: #c0392b; } .where.dev { background: #e1f6e8; color: #1a8a3e; }
 .kbd { display: inline-block; border: 1px solid #c9d2e0; border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; font-size: 12px; font-family: ui-monospace, Menlo, monospace; background: #fff; }
+#m-app li, #m-app p { overflow-wrap: anywhere; min-width: 0; }
+@media (max-width: 600px) { #m-app h3 { font-size: 28px; overflow-wrap: anywhere; } }
 .tm-pr { margin-top: 4px; border: var(--rule); border-radius: 5px; background: #fff; }
 .tm-pr summary { cursor: pointer; list-style: none; padding: 12px 14px; font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 15px; color: var(--blue); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .tm-pr summary::-webkit-details-marker { display: none; }
@@ -997,7 +999,7 @@ body.mats footer { display: none; }
   <div class="goods">
     <aside class="goods-left">
       <div id="g-list-head">
-        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(15)</sup></span></h1>
+        <h1 class="g-title"><span>Всё</span><span>полезное<sup>(16)</sup></span></h1>
         <p class="g-sub">Бесплатные материалы для тех, кто делает сайты, ботов и сервисы с ИИ.</p>
       </div>
       <div id="g-detail-head" hidden>
@@ -1027,6 +1029,7 @@ body.mats footer { display: none; }
         <a class="good" href="#m-office"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="gt"><b>ИИ-офис в Claude Code</b><span>7 сотрудников-агентов, зоны ответственности, обучение и кнопка «Собрание»</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-team"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><circle cx="10" cy="11" r="2.2"/><path d="M7 16c.8-1.6 1.8-2.2 3-2.2s2.2.6 3 2.2M15 10h3M15 13h3M10 2v3h4V2"/></svg></span><span class="gt"><b>Команда и навыки</b><span>Плагины для 7 сотрудников и как подобрать свои под нишу</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         <a class="good" href="#m-server"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h6M11 16.5h6"/></svg></span><span class="gt"><b>Claude Code на сервере</b><span>Работает 24/7 без вашего ноутбука, управление с телефона</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="good" href="#m-app"><span class="thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/><path d="M12 7.2l1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3z"/></svg></span><span class="gt"><b>Своё приложение</b><span>Аналог платного сервиса на iPhone со скиллом Replica</span></span><svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
       <div class="goods-detail" id="g-detail" hidden>
     <section class="m-sec" id="m-install">
@@ -2148,6 +2151,82 @@ description: Утренняя планёрка — статус всех отд�
       <div class="frame note-box"><h3>Финальная проверка</h3><ul><li>Сервер с Ubuntu 24.04 и от 4 ГБ памяти создан.</li><li>Вход под dev работает без пароля.</li><li>Вход под root и по паролю отключён.</li><li>Claude Code установлен, вход в аккаунт выполнен.</li><li>Claude Code запускается в tmux, можно уйти и вернуться.</li><li>Телефон подключён через Remote Control.</li><li>Проект сохранён в приватном репозитории.</li></ul></div>
     </section>
 
+    <section class="m-sec" id="m-app">
+      <div class="sec-title"><h2>Своё приложение</h2><div class="mark" style="background-color:#fff"><b>16</b></div></div>
+      <div class="frame note-box"><h3>Что получится</h3><p>Приложение на вашем iPhone с теми же функциями, что у платного сервиса, но со своим дизайном и названием и без подписки. Так я собрала фоторедактор LUMI вместо подписки за 700 ₽. Шаги ниже подходят для любого приложения.</p></div>
+      <div class="m-grid">
+        <div class="frame item"><div class="label"><span>Что понадобится</span><i>★</i></div><div class="in"><ul>
+          <li><b>Mac.</b> Программа Xcode, которая ставит приложения на iPhone, есть только на Mac.</li>
+          <li><b>Claude Code</b> на подписке Pro или Max.</li>
+          <li><b>iPhone и кабель</b> для подключения к Mac.</li>
+          <li><b>Apple ID</b> — подойдёт обычный, бесплатный.</li>
+        </ul></div></div>
+        <div class="frame item"><div class="label"><span>Что такое Replica</span><i>?</i></div><div class="in"><p>Это набор из 11 скиллов для Claude. Он разбирает чужое приложение: какие там экраны и функции, что главное, а что можно сделать потом. По этому разбору составляет пошаговый план, и Claude собирает ваше приложение.</p><p>Повторяются только функции. Код, тексты, название и логотип оригинала скилл не копирует.</p><p><a href="https://github.com/Jakeschincariol/replica-skill" target="_blank" rel="noopener" style="color:var(--blue);font-size:14px">Replica на GitHub ↗</a></p></div></div>
+      </div>
+      <div class="m-grid">
+        <div class="frame item" style="grid-column:1/-1">
+          <div class="label"><span>Шаг 1</span><i>01</i></div>
+          <div class="in"><h3>Скилл Replica</h3><span class="where pc">● внутри Claude Code</span><p>Откройте Claude Code в новой папке проекта и введите по очереди:</p><div class="cmd wrap"><code>/plugin marketplace add Jakeschincariol/replica-skill</code><button class="copy">Копировать</button></div><div class="cmd wrap"><code>/plugin install replica-skill@replica-skill</code><button class="copy">Копировать</button></div><p>Проверка: введите <b>/plugin</b> и откройте вкладку Installed — там должен быть <b>replica-skill</b>. Если Claude попросит, выполните <b>/reload-plugins</b>.</p></div>
+        </div>
+
+      </div>
+      <article class="frame item prompt">
+        <div class="label"><span>Шаг 2</span><i>02</i></div>
+        <div class="in">
+          <h3>Опишите задачу</h3>
+          <p>Замените выделенное на своё приложение и функции и отправьте в Claude Code. Claude сначала покажет разбор и план — прочитайте и поправьте, если что-то лишнее.</p>
+          <div class="body long" id="pr-app1">Используй скилл Replica. Хочу своё приложение для iPhone с таким же функционалом, как <mark>[НАЗВАНИЕ ПРИЛОЖЕНИЯ, например AirBrush]</mark>.
+
+Ключевые функции: <mark>[например: ретушь кожи, удаление акне, коррекция формы, сравнение до и после]</mark>
+Не нужно: <mark>[например: замена лиц, лента, подписки]</mark>
+
+Сделай по шагам:
+1. Разбери приложение (replica-recon): какие экраны, какие функции, что главное, а что можно сделать потом.
+2. Составь пошаговый план (replica-architect). Покажи его мне и дождись моего «ок», прежде чем писать код.
+3. Повторяем только функции. Код, тексты, название, логотип и картинки оригинала не копируем — дизайн и название придумаем свои.
+4. Собирай нативное приложение для iPhone, чтобы основное работало прямо на телефоне, без интернета.
+
+Объясняй каждый шаг простыми словами — я не программист.</div>
+          <div class="foot"><span>Замените выделенное и отправьте в Claude Code</span><button class="copy" data-p="pr-app1">Копировать</button></div>
+        </div>
+      </article>
+
+      <div class="m-grid">
+        <div class="frame item" style="grid-column:1/-1">
+          <div class="label"><span>Шаг 3</span><i>03</i></div>
+          <div class="in"><h3>Установите Xcode</h3><span class="where pc">● ваш Mac</span><p>Xcode — бесплатная программа Apple для приложений. Скачайте её в App Store на Mac (весит несколько гигабайт). При первом запуске Xcode предложит докачать компоненты для iOS — соглашайтесь, с ними появится симулятор iPhone.</p><p><b>Если загрузка из App Store не начинается,</b> попросите Claude поставить Xcode через терминал. На этом пути бывают три ловушки:</p><ul><li><b>Apple отвечает ошибкой</b> — один раз зайдите на developer.apple.com под своим Apple ID и примите условия. Это бесплатно.</li><li><b>Файл весит килобайты вместо гигабайт</b> — это скачалась страница с ошибкой. Удалите и скачайте заново.</li><li><b>Не подходит пароль</b> — нужен пароль, которым вы входите в Mac, а не пароль от iCloud.</li></ul></div>
+        </div>
+
+      </div>
+      <article class="frame item prompt">
+        <div class="label"><span>Шаг 4</span><i>04</i></div>
+        <div class="in">
+          <h3>Тест в симуляторе</h3>
+          <p>Симулятор — это iPhone на экране Mac. Тестируйте на своих фото и пишите Claude конкретно, что не так: например, «под глазом осталось светлое пятно — сделай мягче и сохрани текстуру кожи».</p>
+          <div class="body long" id="pr-app2">Собери приложение и запусти его в симуляторе iPhone в Xcode. Когда запустится — напиши, что проверить первым.</div>
+          <div class="foot"><span>Отправьте в Claude Code</span><button class="copy" data-p="pr-app2">Копировать</button></div>
+        </div>
+      </article>
+
+      <div class="m-grid">
+        <div class="frame item" style="grid-column:1/-1">
+          <div class="label"><span>Шаг 5</span><i>05</i></div>
+          <div class="in"><h3>Ставим на iPhone</h3><span class="where pc">● Mac + iPhone</span><ul><li><b>Apple ID в Xcode.</b> Xcode → Settings → Accounts → «+» → Apple ID. Подойдёт обычный, и он может отличаться от того, что на телефоне.</li><li><b>Кабель.</b> Подключите iPhone к Mac. На телефоне появится «Доверять этому компьютеру?» — нажмите «Доверять» и введите код телефона.</li><li><b>Установка.</b> Отправьте Claude промпт ниже — он сам соберёт и поставит приложение через Xcode.</li></ul><div class="prompt" style="margin:12px 0"><div class="body" id="pr-app3">Мой iPhone подключён кабелем, а в Xcode добавлен мой Apple ID. Установи приложение на телефон и подскажи, что нажать на самом айфоне.</div><div class="foot" style="margin-top:10px"><span>Отправьте в Claude Code</span><button class="copy" data-p="pr-app3">Копировать</button></div></div><ul><li><b>Режим разработчика.</b> На iPhone: Настройки → Конфиденциальность и безопасность → в самом низу «Режим разработчика». Пункт появляется только после того, как Xcode первый раз обратится к телефону. Телефон перезагрузится и попросит подтвердить.</li><li><b>«Ненадёжный разработчик»</b> при первом запуске — это нормально. Настройки → Основные → VPN и управление устройством → ваш Apple ID → «Доверять».</li></ul></div>
+        </div>
+
+        <div class="frame item" style="grid-column:1/-1">
+          <div class="label"><span>Шаг 6</span><i>06</i></div>
+          <div class="in"><h3>Доработки</h3><span class="where pc">● iPhone + Claude Code</span><p>Пользуйтесь приложением как обычно и вносите доработки по мере необходимости: пишите Claude, что поправить, и просите переустановить на телефон.</p><p><b>Иконка.</b> Я сгенерировала свою в ChatGPT: попросите квадратную картинку 1024×1024 без текста, затем отправьте её Claude со словами «поставь это иконкой приложения».</p></div>
+        </div>
+
+      </div>
+      <div class="frame note-box"><h3>Важно</h3><ul>
+        <li><b>Бесплатный Apple ID</b> — приложение работает на телефоне 7 дней. Потом подключите iPhone и попросите Claude переустановить его из Xcode, это минута.</li>
+        <li><b>App Store</b> — для публикации нужна платная программа Apple Developer.</li>
+        <li><b>Только функции.</b> Не берите название, логотип, тексты и картинки оригинала — придумайте своё.</li>
+      </ul><p><a href="https://github.com/Jakeschincariol/replica-skill" target="_blank" rel="noopener" style="color:var(--blue);font-size:14px">Скилл Replica на GitHub ↗</a></p></div>
+    </section>
+
       </div>
     </div>
   </div>
@@ -2475,7 +2554,8 @@ const DETAIL = {
   "m-design": { t: "Дизайн с нуля", d: "Где учиться, где смотреть референсы и как ставить задачу Claude" },
   "m-office": { t: "Мой офис в Claude", d: "7 сотрудников-агентов в Claude Code: роли, обучение и кнопка «Собрание»" },
   "m-team": { t: "Команда и навыки", d: "Плагины для 7 сотрудников и как подобрать свои под нишу" },
-  "m-server": { t: "Claude на сервере", d: "Работает 24/7 без вашего ноутбука, управление с телефона" }
+  "m-server": { t: "Claude на сервере", d: "Работает 24/7 без вашего ноутбука, управление с телефона" },
+  "m-app": { t: "Своё приложение", d: "Аналог платного сервиса на iPhone со скиллом Replica" }
 };
 const MAT_IDS = ["materials", ...Object.keys(DETAIL)];
 function route() {
